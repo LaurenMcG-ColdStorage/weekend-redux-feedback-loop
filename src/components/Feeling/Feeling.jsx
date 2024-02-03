@@ -18,7 +18,7 @@ function FeelingMeter(){
     return(
         <div>
             <h2>How are you feeling today?</h2>
-            <label>On a scale of 1 to 5</label><br />
+            <label>Scale of 1 to 5</label><br />
             <select name="feeling" 
                     className='feeling-style'  
                     value={feelingValue}
