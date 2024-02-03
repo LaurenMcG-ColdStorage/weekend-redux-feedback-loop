@@ -20,7 +20,7 @@ function App() {
         <h4>Don't forget it!</h4>
       </header>
       <Router>
-        <Route path='/' >
+        <Route path='/' exact>
           <FeelingMeter />
         </Route>
         <Route path='/understanding'>
