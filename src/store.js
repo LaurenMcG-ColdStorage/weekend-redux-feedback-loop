@@ -29,12 +29,12 @@ const comments = (state = [], action) => {
     return state;
 };
 
-const storeInstance = createStore(
+export const store = createStore(
     combineReducers({
         feeling,
         understanding,
         support,
         comments
     }),
-    applyMiddleware(logger)
-)
+    applyMiddleware(logger),
+);
