@@ -4,10 +4,9 @@ import { useState } from 'react';
 function UnderstandingLevel(){
 
     const [understandingValue, setUnderstandingValue] = useState(3);
+    const dispatch = useDispatch();
 
     const submitUnderstanding = (event) => {
-        event.preventDefault();
-        const dispatch = useDispatch();
         const action = {
             type: "CURRENT_UNDERSTANDING",
             payload: understandingValue
