@@ -22,7 +22,7 @@ const support = (state = 1, action) => {
     return state;
 };
 
-const comments = (state = [], action) => {
+const comments = (state = '', action) => {
     if (action.type === "COMMENT"){
         return [...state, action.payload];
     }
@@ -30,7 +30,7 @@ const comments = (state = [], action) => {
 };
 
 const log = (state = [], action) => {
-    if (action.type === "SUBMIT"){
+    if (action.type === "LOG"){
         const newLog = action.payload;
         return [...state, newLog]
     }

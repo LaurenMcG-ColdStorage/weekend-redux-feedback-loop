@@ -8,7 +8,7 @@ function CommentPage(){
     
     const submitComment = (event) => {
         const action = {
-            type: "COMMENTS",
+            type: "COMMENT",
             payload: commentValue
         };
         dispatch(action);
@@ -17,7 +17,7 @@ function CommentPage(){
     return(
         <div>
             <h2>Would you like to leave any comments?</h2>
-            <input type='string' placeholder='Enter text here, or n/a' required></input>
+            <input type='string' placeholder='Enter text here, or n/a' onChange={(event) => setCommentValue(event.target.value)} required></input>
             <button onClick={(event) => submitComment(event)}>Complete</button>
         </div>
     );
