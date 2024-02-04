@@ -4,10 +4,9 @@ import { useState } from 'react';
 function CommentPage(){
 
     const [commentValue, setCommentValue] = useState('');
+    const dispatch = useDispatch();
     
     const submitComment = (event) => {
-        event.preventDefault();
-        const dispatch = useDispatch();
         const action = {
             type: "COMMENTS",
             payload: commentValue
