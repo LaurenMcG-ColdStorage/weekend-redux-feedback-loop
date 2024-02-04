@@ -18,7 +18,7 @@ function CommentPage(){
     return(
         <div>
             <h2>Would you like to leave any comments?</h2>
-            <input type='string' placeholder='Enter text here'></input>
+            <input type='string' placeholder='Enter text here, or n/a' required></input>
             <button onClick={(event) => submitComment(event)}>Complete</button>
         </div>
     );

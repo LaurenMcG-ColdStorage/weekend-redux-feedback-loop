@@ -29,12 +29,21 @@ const comments = (state = [], action) => {
     return state;
 };
 
+const log = (state = [], action) => {
+    if (action.type === "SUBMIT"){
+        const newLog = action.payload;
+        return [...state, newLog]
+    }
+    return state;
+};
+
 export const store = createStore(
     combineReducers({
         feeling,
         understanding,
         support,
-        comments
+        comments,
+        log
     }),
     applyMiddleware(logger),
 );

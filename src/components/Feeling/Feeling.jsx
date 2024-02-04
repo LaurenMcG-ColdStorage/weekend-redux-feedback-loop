@@ -4,10 +4,9 @@ import { useState } from 'react';
 function FeelingMeter(){
 
     const [feelingValue, setFeelingValue] = useState(3);
-
+    const dispatch = useDispatch();
+    
     const submitFeeling = (event) => {
-        event.preventDefault();
-        const dispatch = useDispatch();
         const action = {
             type: "CURRENT_FEELING",
             payload: feelingValue
