@@ -4,10 +4,9 @@ import { useState } from 'react';
 function SupportAmount(){
 
         const [supportValue, setSupportValue] = useState(3);
+        const dispatch = useDispatch();
 
         const submitSupport = (event) => {
-            event.preventDefault();
-            const dispatch = useDispatch();
             const action = {
                 type:"CURRENT_SUPPORT",
                 payload: supportValue
