@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function FeelingMeter(){
 
@@ -29,7 +30,9 @@ function FeelingMeter(){
                 <option value={4}>4</option>
                 <option value={5}>5</option>
             </select>
-            <button onClick={(event) => submitFeeling(event)}>NEXT</button>
+            <button onClick={(event) => submitFeeling(event)}>
+                <Link to='/understanding'>NEXT</Link>
+            </button>
         </div>
     )
 }

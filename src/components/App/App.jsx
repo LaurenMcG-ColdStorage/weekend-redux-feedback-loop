@@ -5,6 +5,7 @@ import './App.css';
 //Importing our router
 import { HashRouter as Router, Route } from 'react-router-dom/cjs/react-router-dom.min';
 
+
 //Importing components for route use
 import FeelingMeter from '../Feeling/Feeling';
 import UnderstandingLevel from '../Understanding/Understanding';

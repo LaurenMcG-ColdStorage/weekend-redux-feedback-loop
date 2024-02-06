@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from 'react-router-dom';
 
 function Review(){
 
@@ -25,7 +26,9 @@ function Review(){
             <p>Understanding: {understanding}</p>
             <p>Support: {support}</p>
             <p>Comments: {comments}</p>
-            <button onClick={(event) => handleSubmit(event)}>SUBMIT</button>
+            <Link to='/thankyou'>
+                <button onClick={(event) => handleSubmit(event)}>SUBMIT</button>
+            </Link>
         </div>
     )
 };

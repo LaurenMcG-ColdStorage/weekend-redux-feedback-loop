@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function CommentPage(){
 
@@ -18,7 +19,9 @@ function CommentPage(){
         <div>
             <h2>Would you like to leave any comments?</h2>
             <input type='string' placeholder='Enter text here, or n/a' onChange={(event) => setCommentValue(event.target.value)} required></input>
-            <button onClick={(event) => submitComment(event)}>Complete</button>
+            <Link to='/review'>
+                <button onClick={(event) => submitComment(event)}>Complete</button>
+            </Link>
         </div>
     );
 };

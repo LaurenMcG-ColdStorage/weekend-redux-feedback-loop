@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function UnderstandingLevel(){
 
@@ -29,7 +30,10 @@ function UnderstandingLevel(){
                 <option value={4}>4</option>
                 <option value={5}>5</option>
             </select>
-            <button onClick={(event) => submitUnderstanding(event)}>Next</button>
+            <Link to='/support'>
+                <button onClick={(event) => submitUnderstanding(event)}>Next</button>
+            </Link>
+            
         </div>
     );
 };

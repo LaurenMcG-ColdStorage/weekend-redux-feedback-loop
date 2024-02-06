@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 function SupportAmount(){
 
         const [supportValue, setSupportValue] = useState(3);
@@ -29,7 +29,9 @@ function SupportAmount(){
                     <option value={4}>4</option>
                     <option value={5}>5</option>
                 </select>
-            <button onClick={(event) => submitSupport(event)}>Next</button>
+            <Link to='/comments'>
+                <button onClick={(event) => submitSupport(event)}>Next</button>
+            </Link>
         </div>
         )
 };
