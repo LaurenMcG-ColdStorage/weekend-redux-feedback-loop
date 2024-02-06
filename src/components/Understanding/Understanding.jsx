@@ -19,7 +19,8 @@ function UnderstandingLevel(){
         <div>
             <h2>How well do you feel you understand this week's content?</h2>
             <label>Scale of 1 to 5</label>
-            <select name="understanding" 
+            <select name="understanding"
+                    data-testid='input' 
                     className='understanding-style'  
                     value={understandingValue}
                     onChange={(event) => setUnderstandingValue(event.target.value)}

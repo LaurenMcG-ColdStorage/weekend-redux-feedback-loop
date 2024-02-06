@@ -18,7 +18,7 @@ function CommentPage(){
     return(
         <div>
             <h2>Would you like to leave any comments?</h2>
-            <input type='string' placeholder='Enter text here, or n/a' onChange={(event) => setCommentValue(event.target.value)} required></input>
+            <input data-testid='input' type='string' placeholder='Enter text here, or n/a' onChange={(event) => setCommentValue(event.target.value)} required></input>
             <Link to='/review'>
                 <button data-testid='next' onClick={(event) => submitComment(event)}>Complete</button>
             </Link>

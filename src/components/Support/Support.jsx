@@ -19,6 +19,7 @@ function SupportAmount(){
                 <h2>How supported are you feeling?</h2>
                 <label>Scale of 1 to 5</label>
                 <select name="support" 
+                        data-testid='input'
                         className='support-style'  
                         value={supportValue}
                         onChange={(event) => setSupportValue(event.target.value)}
