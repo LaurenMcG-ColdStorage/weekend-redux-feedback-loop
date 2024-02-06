@@ -20,6 +20,7 @@ function FeelingMeter(){
             <h2>How are you feeling today?</h2>
             <label>Scale of 1 to 5</label><br />
             <select name="feeling" 
+                    data-testid='input'
                     className='feeling-style'  
                     value={feelingValue}
                     onChange={(event) => setFeelingValue(event.target.value)}
@@ -30,9 +31,9 @@ function FeelingMeter(){
                 <option value={4}>4</option>
                 <option value={5}>5</option>
             </select>
-            <button onClick={(event) => submitFeeling(event)}>
-                <Link to='/understanding'>NEXT</Link>
-            </button>
+            <Link to='/understanding'>
+                <button data-testid='next' onClick={(event) => submitFeeling(event)}></button>
+            </Link>   
         </div>
     )
 }

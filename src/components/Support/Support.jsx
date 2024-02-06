@@ -30,7 +30,7 @@ function SupportAmount(){
                     <option value={5}>5</option>
                 </select>
             <Link to='/comments'>
-                <button onClick={(event) => submitSupport(event)}>Next</button>
+                <button data-testid='next' onClick={(event) => submitSupport(event)}>Next</button>
             </Link>
         </div>
         )

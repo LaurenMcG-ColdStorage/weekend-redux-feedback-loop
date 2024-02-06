@@ -31,7 +31,7 @@ function UnderstandingLevel(){
                 <option value={5}>5</option>
             </select>
             <Link to='/support'>
-                <button onClick={(event) => submitUnderstanding(event)}>Next</button>
+                <button data-testid='next' onClick={(event) => submitUnderstanding(event)}>Next</button>
             </Link>
             
         </div>

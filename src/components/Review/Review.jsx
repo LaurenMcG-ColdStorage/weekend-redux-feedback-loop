@@ -27,7 +27,7 @@ function Review(){
             <p>Support: {support}</p>
             <p>Comments: {comments}</p>
             <Link to='/thankyou'>
-                <button onClick={(event) => handleSubmit(event)}>SUBMIT</button>
+                <button data-testid='next' onClick={(event) => handleSubmit(event)}>SUBMIT</button>
             </Link>
         </div>
     )
