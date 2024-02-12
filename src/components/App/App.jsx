@@ -4,15 +4,16 @@ import './App.css';
 
 //Importing our router
 import { HashRouter as Router, Route } from 'react-router-dom/cjs/react-router-dom.min';
-
+import { Link } from 'react-router-dom'
 
 //Importing components for route use
-import FeelingMeter from '../Feeling/Feeling';
-import UnderstandingLevel from '../Understanding/Understanding';
-import SupportAmount from '../Support/Support';
-import CommentPage from '../Comments/Comments';
+import Feeling from '../Feeling/Feeling';
+import Understanding from '../Understanding/Understanding';
+import Support from '../Support/Support';
+import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
-import ThankYou from '../ThankYou/ThankYou';
+import Thank from '../ThankYou/ThankYou';
+import Admin from '../Admin/Admin';
 
 function App() {
 
@@ -23,23 +24,26 @@ function App() {
         <h4>Don't forget it!</h4>
       </header>
       <Router >
-          <Route path='/' exact>
-            <FeelingMeter />
+          <Route exact path='/'>
+            <Feeling />
           </Route>
           <Route path='/understanding'>
-            <UnderstandingLevel />
+            <Understanding />
           </Route>
           <Route path='/support'>
-            <SupportAmount />
+            <Support />
           </Route>
           <Route path='/comments'>
-            <CommentPage />
+            <Comments />
           </Route>
           <Route path='/review'>
             <Review />
           </Route>
-          <Route path='/thankyou'>
-            <ThankYou />
+          <Route path='/thank'>
+            <Thank  />
+          </Route>
+          <Route path='/admin'>
+            <Admin />
           </Route>
       </Router>
     </div>

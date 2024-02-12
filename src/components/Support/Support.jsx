@@ -1,40 +1,40 @@
-import { useDispatch } from "react-redux";
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-function SupportAmount(){
+import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-        const [supportValue, setSupportValue] = useState(3);
-        const dispatch = useDispatch();
+function Support(){
 
-        const submitSupport = (event) => {
-            const action = {
-                type:"CURRENT_SUPPORT",
-                payload: supportValue
-            };
-            dispatch(action);
+    const support = useSelector((state) => state.support);
+    const [supportValue, setSupportValue] = useState(0);
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    const submitSupport = (event) => {
+        const action = {
+            type:"CURRENT_SUPPORT",
+            payload: supportValue
         };
+        dispatch(action);
+        history.push('/comments')
+    };
 
-        return(
-            <div>
-                <h2>How supported are you feeling?</h2>
-                <label>Scale of 1 to 5</label>
-                <select name="support" 
-                        data-testid='input'
-                        className='support-style'  
-                        value={supportValue}
-                        onChange={(event) => setSupportValue(event.target.value)}
-                        required>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                </select>
-            <Link to='/comments'>
-                <button data-testid='next' onClick={(event) => submitSupport(event)}>Next</button>
-            </Link>
-        </div>
-        )
+    return(
+        <div>
+            <h2>How supported are you feeling?</h2>
+            <label>Scale of 1 to 5</label><br />
+            <input name="support" 
+                    data-testid='input'
+                    className='support-style'  
+                    value={supportValue}
+                    type='number'
+                    min='1'
+                    max='5'
+                    onChange={(event) => setSupportValue(event.target.value)}
+                    required>
+            </input>
+            <button data-testid='next' onClick={(event) => submitSupport(event)}>Next</button>
+    </div>
+    )
 };
 
-export default SupportAmount;
+export default Support;

@@ -1,11 +1,14 @@
-import { useDispatch } from "react-redux";
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch,useSelector } from "react-redux";
+import { useState, useEffect } from 'react';
+//import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-function UnderstandingLevel(){
+function Understanding(){
 
-    const [understandingValue, setUnderstandingValue] = useState(3);
+    const understanding = useSelector((state) => state.understanding);
+    const [understandingValue, setUnderstandingValue] = useState(0);
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const submitUnderstanding = (event) => {
         const action = {
@@ -13,30 +16,25 @@ function UnderstandingLevel(){
             payload: understandingValue
         };
         dispatch(action);
+        history.push('/support');
     };
 
     return(
         <div>
-            <h2>How well do you feel you understand this week's content?</h2>
-            <label>Scale of 1 to 5</label>
-            <select name="understanding"
+            <h2>Rate your understanding of this week's content</h2>
+            <label>Scale of 1 to 5</label><br />
+            <input name="understanding"
                     data-testid='input' 
-                    className='understanding-style'  
+                    type='number' 
                     value={understandingValue}
+                    min='1'
+                    max='5'
                     onChange={(event) => setUnderstandingValue(event.target.value)}
                     required>
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-                <option value={5}>5</option>
-            </select>
-            <Link to='/support'>
-                <button data-testid='next' onClick={(event) => submitUnderstanding(event)}>Next</button>
-            </Link>
-            
+            </input>
+            <button data-testid='next' onClick={submitUnderstanding}>Next</button>          
         </div>
     );
 };
 
-export default UnderstandingLevel;
+export default Understanding;

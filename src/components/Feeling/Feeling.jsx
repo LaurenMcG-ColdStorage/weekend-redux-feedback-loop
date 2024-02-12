@@ -1,41 +1,40 @@
-import { useDispatch } from "react-redux";
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { useState,useEffect } from 'react';
+//import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-function FeelingMeter(){
+function Feeling(){
 
-    const [feelingValue, setFeelingValue] = useState(3);
+    const feeling = useSelector((state) => state.feeling);
+    const [feelingValue, setFeelingValue] = useState(0);
     const dispatch = useDispatch();
-    
+    const history = useHistory();
+
     const submitFeeling = (event) => {
         const action = {
             type: "CURRENT_FEELING",
             payload: feelingValue
         };
         dispatch(action);
+        history.push('/understanding');
     };
 
     return(
         <div>
             <h2>How are you feeling today?</h2>
             <label>Scale of 1 to 5</label><br />
-            <select name="feeling" 
+            <input name="feeling" 
                     data-testid='input'
-                    className='feeling-style'  
+                    type='number'  
                     value={feelingValue}
+                    min='1'
+                    max='5'
                     onChange={(event) => setFeelingValue(event.target.value)}
                     required>
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-                <option value={5}>5</option>
-            </select>
-            <Link to='/understanding'>
-                <button data-testid='next' onClick={(event) => submitFeeling(event)}></button>
-            </Link>   
+            </input>
+            <button data-testid="next" onClick={submitFeeling}>NEXT</button>  
         </div>
     )
 }
 
-export default FeelingMeter;
+export default Feeling;

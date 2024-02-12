@@ -1,5 +1,6 @@
-import { useSelector, useDispatch } from "react-redux";
-import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import axios from 'axios';
 
 function Review(){
 
@@ -8,27 +9,22 @@ function Review(){
     const understanding = useSelector((state) => state.understanding);
     const support = useSelector((state) => state.support);
     const comments = useSelector((state) => state.comments);
+    const history = useHistory();
 
-    //Set up our dispatch to send the data to store.js.
-    const dispatch = useDispatch();
+    //Set up our dispatch to send the data to DB
 
-    const handleSubmit = (event) => {
-        const action = {
-            type: 'LOG',
-            payload: [feeling, understanding, support, comments]
-        };
-        dispatch(action);
+    const handleSubmit = () => {
+        history.push('/thank')
     };
 
     return(
         <div>
+            <h2>Review your Feedback:</h2>
             <p>Feelings: {feeling}</p>
             <p>Understanding: {understanding}</p>
             <p>Support: {support}</p>
             <p>Comments: {comments}</p>
-            <Link to='/thankyou'>
-                <button data-testid='next' onClick={(event) => handleSubmit(event)}>SUBMIT</button>
-            </Link>
+            <button data-testid='next' onClick={handleSubmit}>SUBMIT</button>
         </div>
     )
 };
